@@ -1,2 +1,6 @@
 # DJANGO
 django==1.10
+
+{% if cookiecutter.postgresql=='y' %}
+psycopg2==2.6.2
+{% endif %}
