@@ -49,7 +49,7 @@ def make_secret_key(project_directory):
     # Determine the settings file location
     settings = os.path.join(
         project_directory,
-        '{{cookiecutter.project_name}}/settings.py'
+        '{{cookiecutter.project_name}}/config/base.py'
     )
 
     # settings file

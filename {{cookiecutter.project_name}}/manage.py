@@ -3,7 +3,21 @@ import os
 import sys
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "{{cookiecutter.project_name}}.settings")
+
+    settings_prefix = "{{cookiecutter.project_name}}.config"
+    # Get settings
+    settings = {
+        "production": "production",
+        "local": "local",
+        "test": "test",
+    }
+
+    env = os.environ['SYSTEM_ENV']
+
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", ".".join(
+        (settings_prefix, settings.get(env, "local")))
+    )
+    
     try:
         from django.core.management import execute_from_command_line
     except ImportError:

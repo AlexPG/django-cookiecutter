@@ -20,15 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'CHANGEME!!!'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,6 +33,25 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+{% if cookiecutter.rest_framework == 'y' %}
+THIRD_PARTY_APPS = [
+    'crispy_forms',
+    'rest_framework',
+]
+
+# Rest framework options
+REST_FRAMEWORK = {}
+
+{% else %}
+THIRD_PARTY_APPS = [
+    'crispy_forms',
+]
+{% endif %}
+
+LOCAL_APPS = []
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -70,7 +86,7 @@ WSGI_APPLICATION = '{{cookiecutter.project_name}}.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-{% if cookiecutter.postgresql=='y' %}
+{% if cookiecutter.postgresql == 'y' %}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
