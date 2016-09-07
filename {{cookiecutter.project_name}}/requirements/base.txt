@@ -1,0 +1,16 @@
+# DJANGO
+django==1.10.1
+
+{% if cookiecutter.postgresql=='y' %}
+# Python postgresql adapter
+psycopg2==2.6.2
+{% endif %}
+
+{% if cookiecutter.rest_framework=='y' %}
+# Rest framework
+djangorestframework==3.4.6
+{% endif %}
+
+# Forms
+django-braces==1.9.0
+django-crispy-forms==1.6.0

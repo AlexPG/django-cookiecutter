@@ -1,0 +1,5 @@
+# Local dependencies
+-r base.txt
+
+# Debug toolbar
+django-debug-toolbar==1.5
