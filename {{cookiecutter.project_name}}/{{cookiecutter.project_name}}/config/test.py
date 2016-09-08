@@ -1,7 +1,6 @@
 from .base import *
 
 # Use sqlite3 as test database backend
-
 DATABASES = {
     "default": {
        "ENGINE": "django.db.backends.sqlite3",
