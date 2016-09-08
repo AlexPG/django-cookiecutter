@@ -148,4 +148,4 @@ STATICFILES_DIRS = [
     os.path.join(DJANGO_ROOT, 'static'),
 ]
 
-STATIC_ROOT = os.path.join(os.path.dirname(DJANGO_ROOT), 'static')
+STATIC_ROOT = os.path.join(DJANGO_ROOT, 'static_files')
