@@ -12,7 +12,14 @@ if __name__ == "__main__":
         "test": "test",
     }
 
-    env = os.environ['SYSTEM_ENV']
+    try:
+        env = os.environ['SYSTEM_ENV']
+    except KeyError:
+            raise KeyError(
+            "Could not find SYSTEM_ENV in env. You have to set it to "
+            "local, test or production with export SYSTEM_ENV=local|test|production. "
+            "If no matches are found the default is local."
+        )
 
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", ".".join(
         (settings_prefix, settings.get(env, "local")))
