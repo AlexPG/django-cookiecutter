@@ -1,7 +1,7 @@
 # Django-cookiecutter
 A simple cookiecutter to start easily your django projects.
 
-# Requirementes
+# Requirements
 + Python 3.4
 + Virtualenv
 
